@@ -6,6 +6,7 @@ const { setupMaster, setupWorker } = require("@socket.io/sticky");
 const { createAdapter, setupPrimary } = require("@socket.io/cluster-adapter");
 const SocketMain = require("./Socket/Socket.js");
 
+const port = process.env.PORT || 4790;
 
 if (cluster.isMaster) {
   console.log(`Master ${process.pid} is running`);
@@ -18,17 +19,12 @@ if (cluster.isMaster) {
   // setup connections between the workers
   setupPrimary();
 
-  // needed for packets containing buffers (you can ignore it if you only send plaintext objects)
-  // Node.js < 16.0.0
-  cluster.setupMaster({
-    serialization: "advanced",
-  });
-  // Node.js > 16.0.0
-  // cluster.setupPrimary({
-  //   serialization: "advanced",
-  // });
+  
 
-  httpServer.listen(3000);
+  httpServer.listen(port,()=>{
+    console.log("Running At Port ",port);
+
+  });
 
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
