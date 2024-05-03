@@ -1,6 +1,5 @@
 const os = require("node-os-utils");
 const si = require("systeminformation");
-const drive = require("node-disk-info");
 
 
 const cpu = os.cpu;
