@@ -1,8 +1,8 @@
 import {io} from "socket.io-client";
 
-let endpoint = 'http://localhost:10000';
+let endPoint = 'https://performance-moniter.onrender.com';
 
-export const socket = io(endpoint,
+export const socket = io(endPoint,
 {
     auth:{
         name:"react-client",

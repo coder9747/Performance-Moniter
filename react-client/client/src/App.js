@@ -22,7 +22,7 @@ const App = () => {
       <h2 className='cc-text'>Connected Client {clientsData.length}</h2>
       <div className='main-div'>
         {
-          clientsData.map((item) => <PerfComponent {...item} />)
+          clientsData.map((item) => <PerfComponent  {...item} />)
         }
       </div>
     </div>
