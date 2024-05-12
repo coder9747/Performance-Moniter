@@ -19,7 +19,7 @@ const socket = io.connect(endpoint,
     });
 const id = randomBytes(4).toString('hex');
 
-setInterval(() => perfData(socket, id), 2000);
+setInterval(() => perfData(socket, id), 5000);
 
 const port = process.env.PORT || 20000;
 
